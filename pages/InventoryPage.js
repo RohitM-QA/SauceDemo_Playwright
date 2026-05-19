@@ -3,12 +3,22 @@ class InventoryPage {
         this.page = page;
 
         this.inventoryTitle = page.locator('.title');
-        this.addToCart = page.locator('#add-to-cart-sauce-labs-backpack');
-        
-
-
-
+        this.addToCartButton = page.locator('#add-to-cart-sauce-labs-backpack');
+        this.shoppingCart = page.locator('.shopping_cart_link');    
     }
 
+    async addBackpackToCart() {
+        await this.addToCartButton.click();
+    }
+
+    async openCart() {
+        await this.shoppingCart.click;
+    }
+
+    async getPageTitle() {
+    return await this.inventoryTitle.textContent();
+  }
 
 }
+
+module.exports = InventoryPage;
