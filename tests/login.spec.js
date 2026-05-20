@@ -4,7 +4,8 @@ const LoginPage = require('../pages/LoginPage');
 
 const data = require('../fixtures/testData.json');
 
-test('Valid Login Test', async ({ page }) => {
+// VALID LOGIN TEST
+test('Login with valid username and password', async ({ page }) => {
 
   const loginPage = new LoginPage(page);
 
@@ -17,3 +18,20 @@ test('Valid Login Test', async ({ page }) => {
 
   await expect(page).toHaveURL(/inventory/);
 });
+
+
+// // INVALID LOGIN TEST
+// test('Wrong username + correct password', async ({ page }) => {
+
+//   const loginPage = new LoginPage(page);
+
+//   await page.goto('/');
+
+//   await loginPage.login(
+//     data.wrong_user.username,
+//     data.standardUser.password
+//   );
+  
+//   await expect(page).toHaveURL(/inventory/);
+
+// });
